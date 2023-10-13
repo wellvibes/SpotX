@@ -235,7 +235,7 @@ function Format-LanguageCode {
 function CallLang($clg) {
 
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    $urlLang = "https://raw.githubusercontent.com/SpotX-CLI/SpotX-Win/main/scripts/installer-lang/$clg.ps1"
+    $urlLang = "https://raw.githubusercontent.com/wellvibes/SpotX/main/scripts/installer-lang/$clg.ps1"
     $ProgressPreference = 'SilentlyContinue'
     
     try {
@@ -258,7 +258,7 @@ $lang = CallLang -clg $langCode
 # Set variable 'ru'.
 if ($langCode -eq 'ru') { 
     $ru = $true
-    $urlru = "https://raw.githubusercontent.com/SpotX-CLI/SpotX-commons/main/Augmented%20translation/ru.json"
+    $urlru = "https://raw.githubusercontent.com/wellvibes/SpotX-commons/main/Augmented%20translation/ru.json"
     $webjsonru = (Invoke-WebRequest -UseBasicParsing -Uri $urlru).Content | ConvertFrom-Json
 }
 
@@ -337,15 +337,15 @@ function downloadScripts($param1) {
         $links = $links -replace "upgrade.scdn", "download.scdn"
     }
     if ($ru -and $param1 -eq "cache-spotify") {
-        $links2 = "https://raw.githubusercontent.com/SpotX-CLI/SpotX-Win/main/scripts/cache/cache_spotify_ru.ps1"
+        $links2 = "https://raw.githubusercontent.com/wellvibes/SpotX/main/scripts/cache/cache_spotify_ru.ps1"
     }
     if (!($ru) -and $param1 -eq "cache-spotify" ) { 
-        $links2 = "https://raw.githubusercontent.com/SpotX-CLI/SpotX-Win/main/scripts/cache/cache_spotify.ps1"
+        $links2 = "https://raw.githubusercontent.com/wellvibes/SpotX/main/scripts/cache/cache_spotify.ps1"
     }
     
     $web_Url_prev = "https://github.com/mrpond/BlockTheSpot/releases/latest/download/chrome_elf.zip", $links, `
-        $links2, "https://raw.githubusercontent.com/SpotX-CLI/SpotX-Win/main/scripts/cache/hide_window.vbs", `
-        "https://raw.githubusercontent.com/SpotX-CLI/SpotX-Win/main/scripts/cache/run_ps.bat", "https://docs.google.com/spreadsheets/d/e/2PACX-1vSFN2hWu4UO-ZWyVe8wlP9c0JsrduA49xBnRmSLOt8SWaOfIpCwjDLKXMTWJQ5aKj3WakQv6-Hnv9rz/pub?gid=0&single=true&output=tsv"
+        $links2, "https://raw.githubusercontent.com/wellvibes/SpotX/main/scripts/cache/hide_window.vbs", `
+        "https://raw.githubusercontent.com/wellvibes/SpotX/main/scripts/cache/run_ps.bat", "https://docs.google.com/spreadsheets/d/e/2PACX-1vSFN2hWu4UO-ZWyVe8wlP9c0JsrduA49xBnRmSLOt8SWaOfIpCwjDLKXMTWJQ5aKj3WakQv6-Hnv9rz/pub?gid=0&single=true&output=tsv"
 
     $local_Url_prev = "$PWD\chrome_elf.zip", "$PWD\SpotifySetup.exe", "$cache_folder\cache_spotify.ps1", "$cache_folder\hide_window.vbs", "$cache_folder\run_ps.bat", "$PWD\links.tsv"
     $web_name_file_prev = "chrome_elf.zip", "SpotifySetup.exe", "cache_spotify.ps1", "hide_window.vbs", "run_ps.bat", "links.tsv"
@@ -842,7 +842,7 @@ if (!($cache_on) -and !($cache_off)) {
 if ($exp_standart) { Write-Host ($lang).ExpStandart`n }
 if ($exp_spotify) { Write-Host ($lang).ExpSpotify`n }
 
-$url = "https://raw.githubusercontent.com/SpotX-CLI/SpotX-commons/main/patches.json"
+$url = "https://raw.githubusercontent.com/wellvibes/SpotX-commons/main/patches.json"
 $webjson = (Invoke-WebRequest -UseBasicParsing -Uri $url).Content | ConvertFrom-Json
 
 function Helper($paramname) {
