@@ -265,21 +265,6 @@ if ($langCode -eq 'ru') {
 Write-Host ($lang).Welcome
 Write-Host ""
 
-# Sending a statistical web query to cutt.ly
-$ErrorActionPreference = 'SilentlyContinue'
-$cutt_url = "https://cutt.ly/DK8UQub"
-try {
-    $ProgressPreference = 'SilentlyContinue'
-    Invoke-WebRequest -Uri $cutt_url | Out-Null
-}
-catch {
-    Start-Sleep -Milliseconds 2300
-    try { 
-        Invoke-WebRequest -Uri $cutt_url | Out-Null
-    }
-    catch { }
-}
-
 $spotifyDirectory = "$env:APPDATA\Spotify"
 $spotifyDirectory2 = "$env:LOCALAPPDATA\Spotify"
 $spotifyExecutable = "$spotifyDirectory\Spotify.exe"
