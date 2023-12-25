@@ -1,14 +1,18 @@
-1. Spotify Installer
+The only requirement is to uninstall any version of Spotify you already have on your PC.
+
+---
+
+1. Install the next version of Spotify, once finished close any Spotify process completely.
 
 https://upgrade.scdn.co/upgrade/client/win32-x86/spotify_installer-1.1.73.517.gbef50fdb-23.exe
 
-2. Script 
+2. Open Powershell and paste the following code: 
 
 ```ps1
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (iwr -useb 'https://raw.githubusercontent.com/wellvibes/SpotX/main/Install.ps1').Content | iex
 ```
 
-3. Config
+3. Once the code has been executed, the following will be displayed on the terminal; follow the steps below:
 
 ```ps1
 ╔══════════════════════════════╗
