@@ -371,13 +371,6 @@ function downloadScripts($param1) {
             $ProgressPreference = 'Continue'
             Start-BitsTransfer -Source  $web_Url -Destination $local_Url  -DisplayName ($lang).Download5 -Description "$online "
         }
-        if ($param1 -eq "Desktop" -and $null -eq (Get-Module -Name BitsTransfer -ListAvailable) -and !($curl_check )) {
-            $webClient.DownloadFile($web_Url, $local_Url) 
-        }
-        if ($param1 -ne "Desktop") {
-            $ProgressPreference = 'SilentlyContinue' # Hiding Progress Bars
-            $webClient.DownloadFile($web_Url, $local_Url) 
-        }
     }
 
     catch {
@@ -396,12 +389,6 @@ function downloadScripts($param1) {
             }
             if ($param1 -eq "Desktop" -and $null -ne (Get-Module -Name BitsTransfer -ListAvailable) -and !($curl_check )) {
                 Start-BitsTransfer -Source  $web_Url -Destination $local_Url  -DisplayName ($lang).Download5 -Description "$vernew "
-            }
-            if ($param1 -eq "Desktop" -and $null -eq (Get-Module -Name BitsTransfer -ListAvailable) -and !($curl_check )) {
-                $webClient.DownloadFile($web_Url, $local_Url) 
-            }
-            if ($param1 -ne "Desktop") {
-                $webClient.DownloadFile($web_Url, $local_Url) 
             }
 
         }
